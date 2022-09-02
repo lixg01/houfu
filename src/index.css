@@ -105,7 +105,7 @@ html,
 body {
   color: #333333;
   font-family: 'PingFangSC-Regular', Arial, Helvetica, 'STHeiti STXihei', 'Microsoft YaHei', Tohoma, sans-serif;
-  font-size: 16px;
+  font-size: 0.4rem;
   background-color: #ffffff;
 }
 html,
@@ -135,6 +135,13 @@ q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+}
+input,
+select,
+option,
+textarea {
+  outline: none;
+  border: 0;
 }
 #root {
   min-height: 100%;
