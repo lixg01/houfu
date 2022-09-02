@@ -24,17 +24,25 @@ const Wrap = styled.div`
     left: 0;
     background: #fff;
     z-index: 1;
+    max-height: 8rem;
+    overflow-y: scroll;
     transform: translate(0px, 0%);
   }
 `
 
-const Popup: React.FC<{ visible: boolean; onMaskClick?: () => void }> = ({ visible, onMaskClick }) => {
+const Popup: React.FC<{ visible: boolean; onMaskClick?: () => void; children: React.ReactNode }> = ({
+  visible,
+  onMaskClick,
+  children,
+}) => {
   return (
     <Wrap>
-      <div className="xd-popup">
-        <div className="xd-mask"></div>
-        <div className="xd-body"></div>
-      </div>
+      {visible && (
+        <div className="xd-popup">
+          <div className="xd-mask" onClick={onMaskClick}></div>
+          <div className="xd-body">{children}</div>
+        </div>
+      )}
     </Wrap>
   )
 }

@@ -25,10 +25,12 @@ Button.defaultProps = {
   },
 }
 
-const Btn: React.FC<{ title: string; fun?: () => void }> = ({ title, fun }) => {
+const Btn: React.FC<{ title: string; fun?: () => void; cls?: string }> = ({ title, fun, cls }) => {
   return (
     <ThemeProvider theme={theme}>
-      <Button onClick={fun}>{title}</Button>
+      <Button className={cls} onClick={fun}>
+        {title}
+      </Button>
     </ThemeProvider>
   )
 }
