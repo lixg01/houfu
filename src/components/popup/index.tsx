@@ -24,7 +24,7 @@ const Wrap = styled.div`
     left: 0;
     background: #fff;
     z-index: 1;
-    max-height: 8rem;
+    max-height: 10.6667rem;
     overflow-y: scroll;
     transform: translate(0px, 0%);
   }

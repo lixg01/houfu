@@ -1,6 +1,10 @@
 import { lazy, LazyExoticComponent } from 'react'
 const Index = lazy(() => import('pages/index'))
 const Identity = lazy(() => import('pages/identity'))
+const Personal = lazy(() => import('pages/personal'))
+const Card = lazy(() => import('pages/card'))
+const SetPassword = lazy(() => import('pages/setPassword'))
+const Repayment = lazy(() => import('pages/repayment'))
 
 interface RouteType {
   title?: string
@@ -25,6 +29,26 @@ const routerList: RouteType[] = [
     title: '身份信息',
     path: '/identity',
     component: Identity,
+  },
+  {
+    title: '联系人信息',
+    path: '/personal',
+    component: Personal,
+  },
+  {
+    title: '绑定银行卡',
+    path: '/card',
+    component: Card,
+  },
+  {
+    title: '设置支付密码',
+    path: '/setpassword',
+    component: SetPassword,
+  },
+  {
+    title: '还款详情',
+    path: '/repayment',
+    component: Repayment,
   },
 ]
 
