@@ -107,25 +107,24 @@ const List = styled.div`
 `
 const Card: React.FC = () => {
   const [name, updateName] = useState<string>()
-  const [educationVisible, setEducationVisible] = useState<boolean>(false)
-  const [marital, setMarital] = useState<string>()
-  const [education, setEducation] = useState<string>()
-  const educationLevel = ['建设银行', '工商银行', '招商银行', '农业银行']
+  const [bankVisible, setBankVisible] = useState<boolean>(false)
+  const [bank, setBank] = useState<string>()
+  const banks = ['建设银行', '工商银行', '招商银行', '农业银行']
 
   // 输入姓名
   const setName = (e: any) => {
     updateName(e.target.value)
   }
 
-  // 选择学历
-  const selectEducation = (marital: string) => {
-    setEducation(marital)
-    setEducationVisible(false)
+  // 选择银行
+  const selectBank = (bank: string) => {
+    setBank(bank)
+    setBankVisible(false)
   }
 
   // 显示学历等级选择弹窗
   const showEducationPopup = () => {
-    setEducationVisible(true)
+    setBankVisible(true)
   }
 
   const test = () => {
@@ -161,7 +160,7 @@ const Card: React.FC = () => {
         </dl>
         <dl onClick={showEducationPopup}>
           <dt>开户行</dt>
-          <dd className={marital ? 'selected' : 'no_selected'}>{marital ? marital : '请选择'}</dd>
+          <dd className={bank ? 'selected' : 'no_selected'}>{bank ? bank : '请选择'}</dd>
           <dd className="icon_arrow"></dd>
         </dl>
         <dl>
@@ -194,14 +193,14 @@ const Card: React.FC = () => {
 
       {/* 选择学历等级 */}
       <Popup
-        visible={educationVisible}
+        visible={bankVisible}
         onMaskClick={() => {
-          setEducationVisible(false)
+          setBankVisible(false)
         }}
       >
         <ul className="list">
-          {educationLevel.map(item => (
-            <li onClick={() => selectEducation(item)} key={item}>
+          {banks.map(item => (
+            <li onClick={() => selectBank(item)} key={item}>
               {item}
             </li>
           ))}

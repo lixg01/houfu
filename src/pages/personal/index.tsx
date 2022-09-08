@@ -120,7 +120,7 @@ const List = styled.div`
 const Personal: React.FC = () => {
   const [name, updateName] = useState<string>()
   const [educationVisible, setEducationVisible] = useState<boolean>(false)
-  const [marital, setMarital] = useState<string>()
+  const [relation, updateRelation] = useState<string>()
   const [education, setEducation] = useState<string>()
   const educationLevel = ['父母', '夫妻', '兄弟姐妹', '其他']
 
@@ -130,8 +130,8 @@ const Personal: React.FC = () => {
   }
 
   // 选择学历
-  const selectEducation = (marital: string) => {
-    setEducation(marital)
+  const selectEducation = (relation: string) => {
+    setEducation(relation)
     setEducationVisible(false)
   }
 
@@ -160,7 +160,7 @@ const Personal: React.FC = () => {
       <List>
         <dl onClick={showEducationPopup}>
           <dt>关系</dt>
-          <dd className={marital ? 'selected' : 'no_selected'}>{marital ? marital : '请选择'}</dd>
+          <dd className={relation ? 'selected' : 'no_selected'}>{relation ? relation : '请选择'}</dd>
           <dd className="icon_arrow"></dd>
         </dl>
         <dl>

@@ -4,7 +4,7 @@ import rad from 'assets/images/icon/radio.png'
 import Btn from 'components/button'
 import Password from 'components/password'
 import Popup from 'components/popup'
-import React, { LegacyRef, useRef, useState } from 'react'
+import React, { useState } from 'react'
 import styled, { ThemeProvider } from 'styled-components'
 import { theme } from 'utils/theme'
 
@@ -140,7 +140,6 @@ const Forgot = styled.div`
   font-size: 0.4rem;
 `
 const Repayment: React.FC = () => {
-  const inputRef = useRef<LegacyRef<HTMLInputElement> | undefined>(undefined)
   const [isRepay, updateRepay] = useState<boolean>(false)
   const [visible, updateVisible] = useState<boolean>(false)
   const [bankVisible, updateBankVisible] = useState<boolean>(false)
