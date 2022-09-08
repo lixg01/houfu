@@ -119,7 +119,7 @@ const List = styled.div`
 `
 const Personal: React.FC = () => {
   const [name, updateName] = useState<string>()
-  const [educationVisible, setEducationVisible] = useState<boolean>(false)
+  const [relationVisible, setRelationVisible] = useState<boolean>(false)
   const [relation, updateRelation] = useState<string>()
   const [education, setEducation] = useState<string>()
   const educationLevel = ['父母', '夫妻', '兄弟姐妹', '其他']
@@ -132,12 +132,12 @@ const Personal: React.FC = () => {
   // 选择学历
   const selectEducation = (relation: string) => {
     setEducation(relation)
-    setEducationVisible(false)
+    setRelationVisible(false)
   }
 
   // 显示学历等级选择弹窗
   const showEducationPopup = () => {
-    setEducationVisible(true)
+    setRelationVisible(true)
   }
 
   const test = () => {
@@ -213,9 +213,9 @@ const Personal: React.FC = () => {
 
       {/* 选择学历等级 */}
       <Popup
-        visible={educationVisible}
+        visible={relationVisible}
         onMaskClick={() => {
-          setEducationVisible(false)
+          setRelationVisible(false)
         }}
       >
         <ul className="list">

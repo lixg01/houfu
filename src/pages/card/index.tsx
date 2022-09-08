@@ -109,7 +109,7 @@ const Card: React.FC = () => {
   const [name, updateName] = useState<string>()
   const [bankVisible, setBankVisible] = useState<boolean>(false)
   const [bank, setBank] = useState<string>()
-  const banks = ['建设银行', '工商银行', '招商银行', '农业银行']
+  const banks = ['建设银行123', '工商银行', '招商银行', '农业银行']
 
   // 输入姓名
   const setName = (e: any) => {

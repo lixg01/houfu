@@ -145,7 +145,7 @@ const Repayment: React.FC = () => {
   const [bankVisible, updateBankVisible] = useState<boolean>(false)
   const [ind, updateInd] = useState<number>(0)
   const [bankcard, setBankcard] = useState<string>('中国工商银行 (尾号5684)')
-  const banks = ['中国工商银行 (尾号5684)', '工商银行', '招商银行', '农业银行']
+  const banks = ['中国工商银行 (尾号5684)', '工商银行', '招商银行']
   const details = [
     {
       amount: '60.00',
