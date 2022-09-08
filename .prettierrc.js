@@ -9,5 +9,4 @@ module.exports = {
   insertPragma: false,
   tabWidth: 2,
   useTabs: false,
-  endOfLine: 'auto',
 }

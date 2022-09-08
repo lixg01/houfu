@@ -22,7 +22,5 @@ module.exports = {
       jsx: true,
     },
   },
-  rules: {
-    'prettier/prettier': 'error',
-  },
+  rules: {},
 }
