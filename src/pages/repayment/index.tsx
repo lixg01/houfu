@@ -187,8 +187,7 @@ const Repayment: React.FC = () => {
               selectedRepayment(index)
             }}
             key={index}
-            className={ind === index ? 'list current' : 'list'}
-          >
+            className={ind === index ? 'list current' : 'list'}>
             <dt>
               <span>¥</span>
               {`${item.amount.toLocaleString()}`}
@@ -213,8 +212,7 @@ const Repayment: React.FC = () => {
             <span
               onClick={() => {
                 updateVisible(false)
-              }}
-            ></span>
+              }}></span>
           </h3>
           <div className="detail">
             {isRepay ? '' : <span>付款详情</span>}
@@ -255,8 +253,7 @@ const Repayment: React.FC = () => {
         visible={bankVisible}
         onMaskClick={() => {
           updateBankVisible(false)
-        }}
-      >
+        }}>
         <ul className="banklists">
           {banks.map(item => (
             <li onClick={() => selectBank(item)} key={item}>

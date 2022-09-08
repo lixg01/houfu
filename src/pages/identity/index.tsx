@@ -277,8 +277,7 @@ const Identity: React.FC = () => {
         visible={maritalVisible}
         onMaskClick={() => {
           setMaritalVisible(false)
-        }}
-      >
+        }}>
         <ul className="list">
           {maritalStatus.map(item => (
             <li onClick={() => selectMarital(item)} key={item}>
@@ -293,8 +292,7 @@ const Identity: React.FC = () => {
         visible={educationVisible}
         onMaskClick={() => {
           setEducationVisible(false)
-        }}
-      >
+        }}>
         <ul className="list">
           {educationLevel.map(item => (
             <li onClick={() => selectEducation(item)} key={item}>
@@ -309,8 +307,7 @@ const Identity: React.FC = () => {
         visible={addressVisible}
         onMaskClick={() => {
           setAddressVisible(false)
-        }}
-      >
+        }}>
         <ul className="list">
           {maritalStatus.map(item => (
             <li onClick={() => selectAddress(item)} key={item}>

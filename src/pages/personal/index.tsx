@@ -216,8 +216,7 @@ const Personal: React.FC = () => {
         visible={relationVisible}
         onMaskClick={() => {
           setRelationVisible(false)
-        }}
-      >
+        }}>
         <ul className="list">
           {educationLevel.map(item => (
             <li onClick={() => selectEducation(item)} key={item}>

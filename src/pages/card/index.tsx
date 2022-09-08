@@ -196,8 +196,7 @@ const Card: React.FC = () => {
         visible={bankVisible}
         onMaskClick={() => {
           setBankVisible(false)
-        }}
-      >
+        }}>
         <ul className="list">
           {banks.map(item => (
             <li onClick={() => selectBank(item)} key={item}>
