@@ -178,7 +178,6 @@ const Repayment: React.FC = () => {
   const obtainPassword = (p: string) => {
     console.log(p)
   }
-
   return (
     <Wrap>
       {details.map((item, index) => {
@@ -224,7 +223,7 @@ const Repayment: React.FC = () => {
           {isRepay ? (
             <>
               <div className="trade">
-                <Password getPassword={obtainPassword} />
+                <Password getPassword={obtainPassword} isFocus={true} />
               </div>
               <ThemeProvider theme={theme}>
                 <Forgot>忘记密码</Forgot>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
 
 const PassW = styled.div`
@@ -37,7 +37,8 @@ const PassW = styled.div`
   }
 `
 
-const Password: React.FC<{ getPassword: (p: string) => void }> = ({ getPassword }) => {
+const Password: React.FC<{ getPassword: (p: string) => void; isFocus?: boolean }> = ({ getPassword, isFocus }) => {
+  const inputRef = useRef<HTMLInputElement | null>(null)
   const [password, setPassword] = useState<string>()
   const [pass1, setPass1] = useState<string>()
   const [pass2, setPass2] = useState<string>()
@@ -82,14 +83,38 @@ const Password: React.FC<{ getPassword: (p: string) => void }> = ({ getPassword 
     setPassword(p)
     getPassword(p)
   }
-
+  // 处理键盘挡住输入框问题
+  const keyboradbug = () => {
+    if (isFocus && inputRef.current) {
+      const input = inputRef.current
+      input.focus()
+      const ua = navigator.userAgent
+      const iOS = /iPad|iPhone|iPod/.test(ua)
+      input.addEventListener('focus', () => {
+        setTimeout(() => {
+          if (iOS) {
+            if (!/OS 11_[0-3]\D/.test(ua)) {
+              document.body.scrollTop = document.body.scrollHeight
+            }
+          } else {
+            input.scrollIntoView(false)
+          }
+        }, 300)
+      })
+      input.addEventListener('blur', () => {
+        document.body.scrollIntoView()
+      })
+    }
+  }
   useEffect(() => {
     setFirstPassword()
+    keyboradbug()
   }, [password])
   return (
     <PassW>
       <dd>
         <input
+          ref={inputRef}
           className="outPas"
           onInput={(e: any) => updatePassword(e.target.value)}
           value={password ? password : ''}
