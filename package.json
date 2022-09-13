@@ -11,7 +11,6 @@
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
     "@types/styled-components": "^5.1.26",
-    "antd-mobile": "5.0.0",
     "lib-flexible": "^0.3.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -60,7 +59,8 @@
     "husky": "^8.0.1",
     "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
-    "react-app-rewired": "^2.2.1"
+    "react-app-rewired": "^2.2.1",
+    "vconsole": "^3.14.6"
   },
   "husky": {
     "hooks": {

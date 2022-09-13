@@ -33,6 +33,7 @@ const Wrap = styled.div`
     height: 0.84rem;
     align-items: center;
     dt {
+      margin-right: 0.4267rem;
       font-size: 0.4rem;
     }
   }

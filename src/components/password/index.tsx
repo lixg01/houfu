@@ -5,15 +5,17 @@ const PassW = styled.div`
   position: relative;
   width: 5.4933rem;
   height: 0.84rem;
-  margin-left: 0.4267rem;
   .outPas {
+    display: flex;
     position: absolute;
     top: 0;
     left: 0;
     z-index: 1;
     width: 5.4933rem;
     height: 0.84rem;
-    opacity: 0;
+    caret-color: transparent;
+    color: #fff;
+    opacity: 0.1;
   }
   .innerPas {
     display: flex;
@@ -93,11 +95,8 @@ const Password: React.FC<{ getPassword: (p: string) => void; isFocus?: boolean }
       input.addEventListener('focus', () => {
         setTimeout(() => {
           if (iOS) {
-            if (!/OS 11_[0-3]\D/.test(ua)) {
-              document.body.scrollTop = document.body.scrollHeight
-            }
-          } else {
-            input.scrollIntoView(false)
+            const root = document.getElementById('root')
+            root?.scrollIntoView(false)
           }
         }, 300)
       })
@@ -112,24 +111,23 @@ const Password: React.FC<{ getPassword: (p: string) => void; isFocus?: boolean }
   }, [password])
   return (
     <PassW>
-      <dd>
-        <input
-          ref={inputRef}
-          className="outPas"
-          onInput={(e: any) => updatePassword(e.target.value)}
-          value={password ? password : ''}
-          type="tel"
-          maxLength={6}
-        />
-        <div className="innerPas">
-          <input type="password" readOnly value={pass1 ? pass1 : ''} maxLength={1} />
-          <input type="password" readOnly value={pass2 ? pass2 : ''} maxLength={1} />
-          <input type="password" readOnly value={pass3 ? pass3 : ''} maxLength={1} />
-          <input type="password" readOnly value={pass4 ? pass4 : ''} maxLength={1} />
-          <input type="password" readOnly value={pass5 ? pass5 : ''} maxLength={1} />
-          <input type="password" readOnly value={pass6 ? pass6 : ''} maxLength={1} />
-        </div>
-      </dd>
+      <input
+        ref={inputRef}
+        className="outPas"
+        onContextMenu={() => false}
+        onInput={(e: any) => updatePassword(e.target.value)}
+        value={password ? password : ''}
+        type="tel"
+        maxLength={6}
+      />
+      <div className="innerPas">
+        <input type="password" readOnly value={pass1 ? pass1 : ''} maxLength={1} />
+        <input type="password" readOnly value={pass2 ? pass2 : ''} maxLength={1} />
+        <input type="password" readOnly value={pass3 ? pass3 : ''} maxLength={1} />
+        <input type="password" readOnly value={pass4 ? pass4 : ''} maxLength={1} />
+        <input type="password" readOnly value={pass5 ? pass5 : ''} maxLength={1} />
+        <input type="password" readOnly value={pass6 ? pass6 : ''} maxLength={1} />
+      </div>
     </PassW>
   )
 }

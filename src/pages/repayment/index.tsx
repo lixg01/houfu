@@ -133,8 +133,7 @@ const Wrap = styled.div`
   }
 `
 const Forgot = styled.div`
-  display: flex;
-  justify-content: end;
+  text-align: right;
   margin: 0.5333rem 0.96rem 0.6667rem 0;
   color: ${props => props.theme.colors.third};
   font-size: 0.4rem;
@@ -212,6 +211,7 @@ const Repayment: React.FC = () => {
             <span
               onClick={() => {
                 updateVisible(false)
+                updateRepay(false)
               }}></span>
           </h3>
           <div className="detail">
