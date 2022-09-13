@@ -5,6 +5,7 @@ const Personal = lazy(() => import('pages/personal'))
 const Card = lazy(() => import('pages/card'))
 const SetPassword = lazy(() => import('pages/setPassword'))
 const Repayment = lazy(() => import('pages/repayment'))
+const Bill = lazy(() => import('pages/bill'))
 
 interface RouteType {
   title?: string
@@ -49,6 +50,11 @@ const routerList: RouteType[] = [
     title: '还款详情',
     path: '/repayment',
     component: Repayment,
+  },
+  {
+    title: '账单详情',
+    path: '/bill',
+    component: Bill,
   },
 ]
 

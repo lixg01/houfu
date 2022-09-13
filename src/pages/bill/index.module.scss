@@ -1,0 +1,61 @@
+.line {
+  height: 5px;
+  background: #f5f5f5;
+}
+.amount {
+  display: flex;
+  padding: 22px 0;
+  .icon_bill {
+    width: 47px;
+    height: 47px;
+    text-align: center;
+    margin-top: 5px;
+    line-height: 47px;
+    background: url('../../assets/images/bill.png') no-repeat;
+    background-size: 100%;
+    color: #fd5e4a;
+    font-weight: 600;
+  }
+  .amount_left {
+    margin-left: 30px;
+    font-size: 20px;
+    span {
+      display: flex;
+      justify-content: center;
+      width: 47px;
+      font-size: 12px;
+      color: #999;
+    }
+  }
+  .amount_right {
+    font-size: 25px;
+    margin-right: 9px;
+  }
+  .amount_con {
+    flex: 1;
+    margin-left: 30px;
+    .title {
+      font-size: 12px;
+      color: #999;
+    }
+    .mony {
+      display: flex;
+      font-size: 28px;
+      .question {
+        height: 11px;
+        width: 11px;
+        background: url('../../assets/images/icon/question.png') no-repeat;
+        background-size: 100%;
+        margin: 9px 0 0 7px;
+      }
+    }
+    .time {
+      font-size: 10px;
+      color: #999;
+      span {
+        color: #fd5e4a;
+        font-weight: 600;
+      }
+    }
+  }
+}
