@@ -2808,6 +2808,16 @@ babel-plugin-polyfill-regenerator@^0.4.0:
   dependencies:
     "@babel/helper-define-polyfill-provider" "^0.3.2"
 
+babel-plugin-styled-components-px2rem@^1.5.5:
+  version "1.5.5"
+  resolved "https://registry.npmmirror.com/babel-plugin-styled-components-px2rem/-/babel-plugin-styled-components-px2rem-1.5.5.tgz#5d1117cf5bd8f9f4c8c15663a72b62a0fe9cc410"
+  integrity sha512-yM20Z+CeFot6xmVlIaF9Rtm9NRykFuWih4iU3WA0HBLQp8hETSN5r9matw7Sd2dPnzo+ui0tTyTCGd3yb6NIPw==
+  dependencies:
+    "@babel/helper-plugin-utils" "^7.0.0"
+    memoizerific "^1.11.3"
+    postcss-plugin-px2rem "^0.8.1"
+    postcss-scss "^2.0.0"
+
 "babel-plugin-styled-components@>= 1.12.0":
   version "2.0.7"
   resolved "https://registry.npmmirror.com/babel-plugin-styled-components/-/babel-plugin-styled-components-2.0.7.tgz#c81ef34b713f9da2b7d3f5550df0d1e19e798086"
@@ -6455,6 +6465,11 @@ makeerror@1.0.12:
   dependencies:
     tmpl "1.0.5"
 
+map-or-similar@^1.5.0:
+  version "1.5.0"
+  resolved "https://registry.npmmirror.com/map-or-similar/-/map-or-similar-1.5.0.tgz#6de2653174adfb5d9edc33c69d3e92a1b76faf08"
+  integrity sha512-0aF7ZmVon1igznGI4VS30yugpduQW3y3GkcgGJOp7d8x8QrizhigUxjI/m2UojsXXto+jLAH3KSz+xOJTiORjg==
+
 mdn-data@2.0.14:
   version "2.0.14"
   resolved "https://registry.npmmirror.com/mdn-data/-/mdn-data-2.0.14.tgz#7113fc4281917d63ce29b43446f701e68c25ba50"
@@ -6476,6 +6491,13 @@ memfs@^3.1.2, memfs@^3.4.3:
   integrity sha512-ygaiUSNalBX85388uskeCyhSAoOSgzBbtVCr9jA2RROssFL9Q19/ZXFqS+2Th2sr1ewNIWgFdLzLC3Yl1Zv+lw==
   dependencies:
     fs-monkey "^1.0.3"
+
+memoizerific@^1.11.3:
+  version "1.11.3"
+  resolved "https://registry.npmmirror.com/memoizerific/-/memoizerific-1.11.3.tgz#7c87a4646444c32d75438570905f2dbd1b1a805a"
+  integrity sha512-/EuHYwAPdLtXwAwSZkh/Gutery6pD2KYd44oQLhAvQp/50mpyduZh8Q7PYHXTCJ+wuXxt7oij2LXyIJOOYFPog==
+  dependencies:
+    map-or-similar "^1.5.0"
 
 merge-descriptors@1.0.1:
   version "1.0.1"
@@ -7483,6 +7505,13 @@ postcss-place@^7.0.5:
   dependencies:
     postcss-value-parser "^4.2.0"
 
+postcss-plugin-px2rem@^0.8.1:
+  version "0.8.1"
+  resolved "https://registry.npmmirror.com/postcss-plugin-px2rem/-/postcss-plugin-px2rem-0.8.1.tgz#e8adf28fd2befbc079a119126b5c62a88905d5e1"
+  integrity sha512-gNxhrnR57pnGrPLLqVNWY9+BWgj46kYkphw+0gpRJf9tjgwI7/tLqQPK7KdlksB2SSAddOb11otDVwri8b8mXw==
+  dependencies:
+    postcss "^5.0.21"
+
 postcss-preset-env@^7.0.1:
   version "7.8.0"
   resolved "https://registry.npmmirror.com/postcss-preset-env/-/postcss-preset-env-7.8.0.tgz#5bd3ad53b2ef02edd41645d1ffee1ff8a49f24e5"
@@ -7573,6 +7602,13 @@ postcss-replace-overflow-wrap@^4.0.0:
   resolved "https://registry.npmmirror.com/postcss-replace-overflow-wrap/-/postcss-replace-overflow-wrap-4.0.0.tgz#d2df6bed10b477bf9c52fab28c568b4b29ca4319"
   integrity sha512-KmF7SBPphT4gPPcKZc7aDkweHiKEEO8cla/GjcBK+ckKxiZslIu3C4GCRW3DNfL0o7yW7kMQu9xlZ1kXRXLXtw==
 
+postcss-scss@^2.0.0:
+  version "2.1.1"
+  resolved "https://registry.npmmirror.com/postcss-scss/-/postcss-scss-2.1.1.tgz#ec3a75fa29a55e016b90bf3269026c53c1d2b383"
+  integrity sha512-jQmGnj0hSGLd9RscFw9LyuSVAa5Bl1/KBPqG1NQw9w8ND55nY4ZEsdlVuYJvLPpV+y0nwTV5v/4rHPzZRihQbA==
+  dependencies:
+    postcss "^7.0.6"
+
 postcss-selector-not@^6.0.1:
   version "6.0.1"
   resolved "https://registry.npmmirror.com/postcss-selector-not/-/postcss-selector-not-6.0.1.tgz#8f0a709bf7d4b45222793fc34409be407537556d"
@@ -7608,7 +7644,7 @@ postcss-value-parser@^4.0.0, postcss-value-parser@^4.0.2, postcss-value-parser@^
   resolved "https://registry.npmmirror.com/postcss-value-parser/-/postcss-value-parser-4.2.0.tgz#723c09920836ba6d3e5af019f92bc0971c02e514"
   integrity sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ==
 
-postcss@^5.0.0:
+postcss@^5.0.0, postcss@^5.0.21:
   version "5.2.18"
   resolved "https://registry.npmmirror.com/postcss/-/postcss-5.2.18.tgz#badfa1497d46244f6390f58b319830d9107853c5"
   integrity sha512-zrUjRRe1bpXKsX1qAJNJjqZViErVuyEkMTRrwu4ud4sbTtIBRmtaYDrHmcGgmrbsW3MHfmtIf+vJumgQn+PrXg==
@@ -7618,7 +7654,7 @@ postcss@^5.0.0:
     source-map "^0.5.6"
     supports-color "^3.2.3"
 
-postcss@^7.0.0, postcss@^7.0.35:
+postcss@^7.0.0, postcss@^7.0.35, postcss@^7.0.6:
   version "7.0.39"
   resolved "https://registry.npmmirror.com/postcss/-/postcss-7.0.39.tgz#9624375d965630e2e1f2c02a935c82a59cb48309"
   integrity sha512-yioayjNbHn6z1/Bywyb2Y4s3yvDAeXGOyxqD+LnVOinq6Mdmd++SW2wUNVzavyyHxd6+DxzWGIuosg6P1Rj8uA==

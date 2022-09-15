@@ -23,6 +23,19 @@ const Bill: React.FC = () => {
         <div className={`${style.amount_right} ${style.icon_bill}`}>05</div>
       </div>
       <div className={style.line}></div>
+      <dl className={style.detail}>
+        <dt>消费明细</dt>
+        <dd>
+          <div>
+            消费
+            <span>{'订单号 QW5454465457155'}</span>
+          </div>
+          <div>
+            {`${(999.25).toLocaleString()}元`}
+            <span>{'2022-01-02'}</span>
+          </div>
+        </dd>
+      </dl>
     </>
   )
 }

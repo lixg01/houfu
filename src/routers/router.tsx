@@ -6,6 +6,11 @@ const Card = lazy(() => import('pages/card'))
 const SetPassword = lazy(() => import('pages/setPassword'))
 const Repayment = lazy(() => import('pages/repayment'))
 const Bill = lazy(() => import('pages/bill'))
+const HistoricalBills = lazy(() => import('pages/historicalBills'))
+const Unbilled = lazy(() => import('pages/unbilled'))
+const RepaymentRecord = lazy(() => import('pages/repaymentRecord'))
+const RepaymentDetails = lazy(() => import('pages/repaymentDetails'))
+const Status = lazy(() => import('pages/status'))
 
 interface RouteType {
   title?: string
@@ -55,6 +60,31 @@ const routerList: RouteType[] = [
     title: '账单详情',
     path: '/bill',
     component: Bill,
+  },
+  {
+    title: '历史账单',
+    path: '/historicalbills',
+    component: HistoricalBills,
+  },
+  {
+    title: '未出账单',
+    path: '/unbilled',
+    component: Unbilled,
+  },
+  {
+    title: '还款记录',
+    path: 'repamentrecord',
+    component: RepaymentRecord,
+  },
+  {
+    title: '还款详情',
+    path: 'repaymentdetails',
+    component: RepaymentDetails,
+  },
+  {
+    title: '还款处理中',
+    path: 'status',
+    component: Status,
   },
 ]
 

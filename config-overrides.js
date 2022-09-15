@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const { override, fixBabelImports, addWebpackModuleRule } = require('customize-cra')
+const { override, fixBabelImports, adjustStyleLoaders } = require('customize-cra')
 const rewirePostcss = require('react-app-rewire-postcss')
 const px2rem = require('postcss-px2rem-exclude')
 
@@ -8,19 +8,15 @@ module.exports = override(
     libraryName: 'antd-mobile',
     style: true,
   }),
-  addWebpackModuleRule({
-    test: /\.scss$/,
-    use: [
-      'style-loader',
-      'css-loader',
-      'sass-loader',
-      {
-        loader: 'sass-resources-loader',
+  adjustStyleLoaders(rule => {
+    if (rule.test.toString().includes('scss')) {
+      rule.use.push({
+        loader: require.resolve('sass-resources-loader'),
         options: {
           resources: ['./src/assets/css/variables.scss'],
         },
-      },
-    ],
+      })
+    }
   }),
   (config, env) => {
     rewirePostcss(config, {

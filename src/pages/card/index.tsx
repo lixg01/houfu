@@ -1,4 +1,5 @@
 import arrow from 'assets/images/icon/arrow.png'
+import close from 'assets/images/icon/r_close.png'
 import Btn from 'components/button'
 import Popup from 'components/popup'
 import React, { useState } from 'react'
@@ -81,6 +82,23 @@ const List = styled.div`
     dd:nth-child(2) {
       flex: 1;
     }
+    .close {
+      width: 0.3067rem;
+      height: 0.3067rem;
+      background: url(${close}) no-repeat;
+      background-size: 100%;
+      margin-right: 0.4rem;
+    }
+    .code {
+      width: 1.6rem;
+      font-size: 12px;
+      color: #44ccca;
+      margin-right: 0.5867rem;
+      text-align: center;
+    }
+    .gray {
+      color: #999;
+    }
     .icon_arrow {
       width: 0.2133rem;
       height: 0.36rem;
@@ -106,15 +124,16 @@ const List = styled.div`
   }
 `
 const Card: React.FC = () => {
-  const [name, updateName] = useState<string>()
+  const inintNum = 60
+  const [name] = useState<string>('王小二')
+  const [type] = useState<string>('储蓄卡')
   const [bankVisible, setBankVisible] = useState<boolean>(false)
   const [bank, setBank] = useState<string>()
+  const [cardNum, updateCardNum] = useState<string>()
+  const [phone, updatePhone] = useState<string>()
+  const [code, updatCode] = useState<string>()
+  const [num, updateNum] = useState<number>(inintNum)
   const banks = ['建设银行123', '工商银行', '招商银行', '农业银行']
-
-  // 输入姓名
-  const setName = (e: any) => {
-    updateName(e.target.value)
-  }
 
   // 选择银行
   const selectBank = (bank: string) => {
@@ -129,6 +148,23 @@ const Card: React.FC = () => {
 
   const test = () => {
     console.log('下一步')
+  }
+  // 获取验证码
+  const getCode = () => {
+    let timer: number
+    const cb = () => {
+      updateNum((num: number) => {
+        const newNum = num - 1
+        if (num > 0) {
+          timer = setTimeout(cb, 1000) as unknown as number
+        } else {
+          clearTimeout(timer)
+          updateNum(inintNum)
+        }
+        return newNum
+      })
+    }
+    cb()
   }
   return (
     <Wrap>
@@ -147,16 +183,14 @@ const Card: React.FC = () => {
         <dl>
           <dt>持卡人</dt>
           <dd>
-            <input type="text" value={name ? name : ''} onInput={e => setName(e)} placeholder="输入身份证号码" />
+            <input type="text" value={name ? name : ''} readOnly placeholder="输入身份证号码" />
           </dd>
-          {name && <dd className="close" onClick={() => updateName('')}></dd>}
         </dl>
         <dl>
           <dt>卡类型</dt>
           <dd>
-            <input type="text" value={name ? name : ''} onInput={e => setName(e)} placeholder="输入真实姓名" />
+            <input type="text" value={type ? type : ''} readOnly placeholder="输入真实姓名" />
           </dd>
-          {name && <dd className="close" onClick={() => updateName('')}></dd>}
         </dl>
         <dl onClick={showEducationPopup}>
           <dt>开户行</dt>
@@ -166,25 +200,46 @@ const Card: React.FC = () => {
         <dl>
           <dt>银行卡号</dt>
           <dd>
-            <input type="text" value={name ? name : ''} onInput={e => setName(e)} placeholder="填写亲属手机号码" />
+            <input
+              type="text"
+              value={cardNum ? cardNum : ''}
+              onInput={(e: any) => updateCardNum(e.target.value)}
+              placeholder="请输入银行卡号"
+            />
           </dd>
-          {name && <dd className="close" onClick={() => updateName('')}></dd>}
+          {cardNum && <dd className="close" onClick={() => updateCardNum('')}></dd>}
         </dl>
       </List>
       <List className="part2">
         <dl>
           <dt>手机号</dt>
           <dd>
-            <input type="text" value={name ? name : ''} onInput={e => setName(e)} placeholder="输入同事姓名" />
+            <input
+              type="text"
+              value={phone ? phone : ''}
+              onInput={(e: any) => updatePhone(e.target.value)}
+              placeholder="输入手机号"
+            />
           </dd>
-          {name && <dd className="close" onClick={() => updateName('')}></dd>}
+          {phone && <dd className="close" onClick={() => updatePhone('')}></dd>}
         </dl>
         <dl>
           <dt>验证码</dt>
           <dd>
-            <input type="text" value={name ? name : ''} onInput={e => setName(e)} placeholder="请输入验证码" />
+            <input
+              type="text"
+              value={code ? code : ''}
+              onInput={(e: any) => updatCode(e.target.value)}
+              placeholder="请输入验证码"
+            />
           </dd>
-          {name && <dd className="close" onClick={() => updateName('')}></dd>}
+          {num < inintNum && num >= 0 ? (
+            <dd className="code gray">{`${num}s`}</dd>
+          ) : (
+            <dd className="code" onClick={getCode}>
+              获取验证吗
+            </dd>
+          )}
         </dl>
       </List>
       <ThemeProvider theme={theme}>
