@@ -4,6 +4,7 @@ import line from 'assets/images/line.png'
 import noRecord from 'assets/images/no_record.png'
 import Btn from 'components/button'
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import styled, { ThemeProvider } from 'styled-components'
 import { theme } from 'utils/theme'
 
@@ -124,9 +125,10 @@ const Span = styled.span`
 `
 
 const quota: React.FC<{ quota?: boolean }> = () => {
+  const navigate = useNavigate()
   const [isRecord] = useState(true)
   const repay = () => {
-    console.log(`还款`)
+    navigate('/repayment')
   }
   return (
     <Wrap>
@@ -138,7 +140,7 @@ const quota: React.FC<{ quota?: boolean }> = () => {
                 <span>总待还</span>
                 <span>{`￥${(425600).toLocaleString()}`}</span>
               </li>
-              <li>还款记录</li>
+              <li onClick={() => navigate('/repamentrecord', { state: { name: 'zz' } })}>还款记录</li>
             </ul>
             <div className="line"></div>
             <dl className="current">
@@ -157,12 +159,12 @@ const quota: React.FC<{ quota?: boolean }> = () => {
             </dl>
             <ul className="all_bill">
               <li>账单总金额 ￥37.25</li>
-              <li>明细</li>
+              <li onClick={() => navigate('/bill')}>明细</li>
             </ul>
           </div>
           <div className="bill_menu">
-            <span>历史账单</span>
-            <span>未出账单</span>
+            <span onClick={() => navigate('/historicalbills')}>历史账单</span>
+            <span onClick={() => navigate('/unbilled')}>未出账单</span>
           </div>
         </>
       ) : (

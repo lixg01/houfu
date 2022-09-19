@@ -2,6 +2,7 @@ import arrow from 'assets/images/icon/arrow02.png'
 import entrust from 'assets/images/icon/entrust.png'
 import initiative from 'assets/images/icon/initiative.png'
 import React from 'react'
+import { useLocation } from 'react-router-dom'
 import styled from 'styled-components'
 
 const Wrap = styled.div`
@@ -42,6 +43,8 @@ const Wrap = styled.div`
   }
 `
 const RepamentRecord: React.FC = () => {
+  const location = useLocation()
+  console.log(location)
   return (
     <Wrap>
       <div className="line"></div>

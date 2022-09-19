@@ -1,5 +1,6 @@
 import Btn from 'components/button'
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import styled, { ThemeProvider } from 'styled-components'
 import { theme } from 'utils/theme'
 const Wrap = styled.div`
@@ -18,9 +19,14 @@ const Wrap = styled.div`
 `
 
 const NoQuota: React.FC<{ quota?: boolean }> = () => {
+  const navigate = useNavigate()
   const [audit] = useState<boolean>(false)
   const test = () => {
-    console.log(111)
+    if (audit) {
+      console.log('audit')
+    } else {
+      navigate('identity')
+    }
   }
   return (
     <Wrap>

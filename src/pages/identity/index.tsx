@@ -6,6 +6,7 @@ import front from 'assets/images/identity_front.png'
 import Btn from 'components/button'
 import Popup from 'components/popup'
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import styled, { ThemeProvider } from 'styled-components'
 import { theme } from 'utils/theme'
 
@@ -153,6 +154,7 @@ const List = styled.div`
   }
 `
 const Identity: React.FC = () => {
+  const navigate = useNavigate()
   const [name, updateName] = useState<string>()
   const [identity, updateIdentity] = useState<string>()
   const [maritalVisible, setMaritalVisible] = useState<boolean>(false)
@@ -206,7 +208,7 @@ const Identity: React.FC = () => {
     setAddressVisible(true)
   }
   const test = () => {
-    console.log('下一步')
+    navigate('/personal')
   }
   return (
     <Wrap>

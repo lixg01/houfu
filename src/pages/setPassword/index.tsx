@@ -1,6 +1,7 @@
 import Btn from 'components/button'
 import Password from 'components/password'
 import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import styled, { ThemeProvider } from 'styled-components'
 import { theme } from 'utils/theme'
 
@@ -50,11 +51,12 @@ const H1 = styled.h1`
 `
 
 const SetPassword: React.FC = () => {
+  const navigate = useNavigate()
   const [pass1, setPass1] = useState<string>()
   const [pass2, setPass2] = useState<string>()
 
   const test = () => {
-    console.log(1)
+    navigate('/index')
   }
   // 设置支付密码
   const setP1 = (p: string) => {

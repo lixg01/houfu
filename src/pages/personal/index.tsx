@@ -3,6 +3,7 @@ import close from 'assets/images/icon/r_close.png'
 import Btn from 'components/button'
 import Popup from 'components/popup'
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import styled, { ThemeProvider } from 'styled-components'
 import { theme } from 'utils/theme'
 
@@ -118,6 +119,7 @@ const List = styled.div`
   }
 `
 const Personal: React.FC = () => {
+  const navigate = useNavigate()
   const [name, updateName] = useState<string>()
   const [relationVisible, setRelationVisible] = useState<boolean>(false)
   const [relation, updateRelation] = useState<string>()
@@ -141,7 +143,7 @@ const Personal: React.FC = () => {
   }
 
   const test = () => {
-    console.log('下一步')
+    navigate('/card')
   }
   return (
     <Wrap>

@@ -2,7 +2,9 @@ import arrow from 'assets/images/icon/arrow.png'
 import close from 'assets/images/icon/r_close.png'
 import Btn from 'components/button'
 import Popup from 'components/popup'
+import VerificationCode from 'components/verificationCode'
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import styled, { ThemeProvider } from 'styled-components'
 import { theme } from 'utils/theme'
 
@@ -89,25 +91,12 @@ const List = styled.div`
       background-size: 100%;
       margin-right: 0.4rem;
     }
-    .code {
-      width: 1.6rem;
-      font-size: 12px;
-      color: #44ccca;
-      margin-right: 0.5867rem;
-      text-align: center;
-    }
-    .gray {
-      color: #999;
-    }
     .icon_arrow {
       width: 0.2133rem;
       height: 0.36rem;
       background: url(${arrow}) no-repeat;
       background-size: 100%;
       margin: 0 0.4rem 0 0.6667rem;
-    }
-    .selected {
-      text-align: right;
     }
     .no_selected {
       text-align: right;
@@ -122,9 +111,12 @@ const List = styled.div`
       }
     }
   }
+  .code {
+    padding-right: 0.5867rem;
+  }
 `
 const Card: React.FC = () => {
-  const inintNum = 60
+  const navigate = useNavigate()
   const [name] = useState<string>('王小二')
   const [type] = useState<string>('储蓄卡')
   const [bankVisible, setBankVisible] = useState<boolean>(false)
@@ -132,7 +124,6 @@ const Card: React.FC = () => {
   const [cardNum, updateCardNum] = useState<string>()
   const [phone, updatePhone] = useState<string>()
   const [code, updatCode] = useState<string>()
-  const [num, updateNum] = useState<number>(inintNum)
   const banks = ['建设银行123', '工商银行', '招商银行', '农业银行']
 
   // 选择银行
@@ -147,24 +138,11 @@ const Card: React.FC = () => {
   }
 
   const test = () => {
-    console.log('下一步')
+    navigate('/setpassword')
   }
   // 获取验证码
   const getCode = () => {
-    let timer: number
-    const cb = () => {
-      updateNum((num: number) => {
-        const newNum = num - 1
-        if (num > 0) {
-          timer = setTimeout(cb, 1000) as unknown as number
-        } else {
-          clearTimeout(timer)
-          updateNum(inintNum)
-        }
-        return newNum
-      })
-    }
-    cb()
+    console.log('11')
   }
   return (
     <Wrap>
@@ -203,7 +181,7 @@ const Card: React.FC = () => {
             <input
               type="text"
               value={cardNum ? cardNum : ''}
-              onInput={(e: any) => updateCardNum(e.target.value)}
+              onInput={(e: React.ChangeEvent<HTMLInputElement>) => updateCardNum(e.target.value)}
               placeholder="请输入银行卡号"
             />
           </dd>
@@ -217,29 +195,23 @@ const Card: React.FC = () => {
             <input
               type="text"
               value={phone ? phone : ''}
-              onInput={(e: any) => updatePhone(e.target.value)}
+              onInput={(e: React.ChangeEvent<HTMLInputElement>) => updatePhone(e.target.value)}
               placeholder="输入手机号"
             />
           </dd>
           {phone && <dd className="close" onClick={() => updatePhone('')}></dd>}
         </dl>
-        <dl>
+        <dl className="code">
           <dt>验证码</dt>
           <dd>
             <input
               type="text"
               value={code ? code : ''}
-              onInput={(e: any) => updatCode(e.target.value)}
+              onInput={(e: React.ChangeEvent<HTMLInputElement>) => updatCode(e.target.value)}
               placeholder="请输入验证码"
             />
           </dd>
-          {num < inintNum && num >= 0 ? (
-            <dd className="code gray">{`${num}s`}</dd>
-          ) : (
-            <dd className="code" onClick={getCode}>
-              获取验证吗
-            </dd>
-          )}
+          <VerificationCode inintNum={60} fun={getCode}></VerificationCode>
         </dl>
       </List>
       <ThemeProvider theme={theme}>
