@@ -1,3 +1,4 @@
+import { qrcodeListByMerchant } from 'api/index'
 import arrow from 'assets/images/icon/arrow.png'
 import close from 'assets/images/icon/r_close.png'
 import Btn from 'components/button'
@@ -142,7 +143,7 @@ const Card: React.FC = () => {
   }
   // 获取验证码
   const getCode = () => {
-    console.log('11')
+    return qrcodeListByMerchant({ merchantNo: '1111' })
   }
   return (
     <Wrap>

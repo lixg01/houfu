@@ -14,11 +14,21 @@ const Gray = styled.div`
   color: #999;
   text-align: center;
 `
-const VerificationCode: React.FC<{ inintNum: number; fun: () => void }> = ({ inintNum, fun }) => {
+const VerificationCode: React.FC<{ inintNum: number; fun: () => Promise<any> }> = ({ inintNum, fun }) => {
   const [num, updateNum] = useState<number>(inintNum)
+  let flag = false
   // 获取验证码
   const getCode = () => {
+    if (flag) {
+      return
+    }
+    flag = true
     fun()
+      .then((res: any) => {
+        console.log(res)
+        cb()
+      })
+      .catch(err => cb())
     let timer: number
     const cb = () => {
       updateNum((num: number) => {
@@ -32,7 +42,6 @@ const VerificationCode: React.FC<{ inintNum: number; fun: () => void }> = ({ ini
         return newNum
       })
     }
-    cb()
   }
   return (
     <ThemeProvider theme={theme}>
