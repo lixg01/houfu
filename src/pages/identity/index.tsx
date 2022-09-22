@@ -4,10 +4,12 @@ import close from 'assets/images/icon/r_close.png'
 import back from 'assets/images/identity_back.png'
 import front from 'assets/images/identity_front.png'
 import Btn from 'components/button'
+import Cascader from 'components/cascader'
 import Popup from 'components/popup'
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import styled, { ThemeProvider } from 'styled-components'
+import { options } from 'utils/data'
 import { theme } from 'utils/theme'
 
 const Wrap = styled.div`
@@ -310,13 +312,7 @@ const Identity: React.FC = () => {
         onMaskClick={() => {
           setAddressVisible(false)
         }}>
-        <ul className="list">
-          {maritalStatus.map(item => (
-            <li onClick={() => selectAddress(item)} key={item}>
-              {item}
-            </li>
-          ))}
-        </ul>
+        <Cascader data={options} />
       </Popup>
     </Wrap>
   )
