@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 
 const Wrap = styled.div`
-  height: 200px;
+  background: #fff;
   .header {
     display: flex;
     border-bottom: 1px solid #ededed;

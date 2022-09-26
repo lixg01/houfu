@@ -6,6 +6,7 @@ import front from 'assets/images/identity_front.png'
 import Btn from 'components/button'
 import Cascader from 'components/cascader'
 import Popup from 'components/popup'
+import User from 'components/user'
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import styled, { ThemeProvider } from 'styled-components'
@@ -25,6 +26,7 @@ const Wrap = styled.div`
     }
   }
   .list {
+    background: #fff;
     li {
       display: flex;
       justify-content: center;
@@ -162,6 +164,7 @@ const Identity: React.FC = () => {
   const [maritalVisible, setMaritalVisible] = useState<boolean>(false)
   const [educationVisible, setEducationVisible] = useState<boolean>(false)
   const [addressVisible, setAddressVisible] = useState<boolean>(false)
+  const [userVisible, setUserVisible] = useState<boolean>(true)
   const [marital, setMarital] = useState<string>()
   const [education, setEducation] = useState<string>()
   const [address, setAddress] = useState<string>()
@@ -190,12 +193,6 @@ const Identity: React.FC = () => {
     setEducationVisible(false)
   }
 
-  // 选择地址
-  const selectAddress = (marital: string) => {
-    setAddress(marital)
-    setAddressVisible(false)
-  }
-
   // 显示婚姻状态选择弹窗
   const showMaritalPopup = () => {
     setMaritalVisible(true)
@@ -211,6 +208,9 @@ const Identity: React.FC = () => {
   }
   const test = () => {
     navigate('/personal')
+  }
+  const getCode = () => {
+    setUserVisible(false)
   }
   return (
     <Wrap>
@@ -313,6 +313,11 @@ const Identity: React.FC = () => {
           setAddressVisible(false)
         }}>
         <Cascader data={options} />
+      </Popup>
+
+      {/* 用户信息注册弹窗 */}
+      <Popup visible={userVisible} position={'center'}>
+        <User fun={getCode} />
       </Popup>
     </Wrap>
   )

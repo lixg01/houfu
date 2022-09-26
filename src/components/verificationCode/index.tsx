@@ -5,7 +5,8 @@ import { theme } from 'utils/theme'
 const Code = styled.div`
   width: 1.6rem;
   font-size: 12px;
-  color: ${props => props.theme.colors.third};
+  color: #2593f9;
+  /* color: ${props => props.theme.colors.third}; */
   text-align: center;
 `
 const Gray = styled.div`

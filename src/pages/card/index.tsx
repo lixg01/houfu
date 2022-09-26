@@ -17,6 +17,7 @@ const Wrap = styled.div`
     margin-top: 1.0667rem;
   }
   .list {
+    background: #fff;
     li {
       display: flex;
       justify-content: center;
