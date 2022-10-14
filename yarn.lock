@@ -1236,6 +1236,16 @@
     minimatch "^3.1.2"
     strip-json-comments "^3.1.1"
 
+"@hsuna/babel-plugin-styled-components-px2rem@1.5.6":
+  version "1.5.6"
+  resolved "https://registry.npmmirror.com/@hsuna/babel-plugin-styled-components-px2rem/-/babel-plugin-styled-components-px2rem-1.5.6.tgz#bc075d94fb1d776caf76f46d60508abdd7a24c14"
+  integrity sha512-lp//foglOSqf4NGmMlV+d9JWwgIDDfng7kXr9YNA8kQPjR34AEYvfccsXAi+ehWXSRwrtgXOO6cl4I50ETyj+A==
+  dependencies:
+    "@babel/helper-plugin-utils" "^7.0.0"
+    memoizerific "^1.11.3"
+    postcss-plugin-px2rem "^0.8.1"
+    postcss-scss "^2.0.0"
+
 "@humanwhocodes/config-array@^0.10.4":
   version "0.10.4"
   resolved "https://registry.npmmirror.com/@humanwhocodes/config-array/-/config-array-0.10.4.tgz#01e7366e57d2ad104feea63e72248f22015c520c"
@@ -2827,16 +2837,6 @@ babel-plugin-polyfill-regenerator@^0.4.0:
   integrity sha512-RW1cnryiADFeHmfLS+WW/G431p1PsW5qdRdz0SDRi7TKcUgc7Oh/uXkT7MZ/+tGsT1BkczEAmD5XjUyJ5SWDTw==
   dependencies:
     "@babel/helper-define-polyfill-provider" "^0.3.2"
-
-babel-plugin-styled-components-px2rem@^1.5.5:
-  version "1.5.5"
-  resolved "https://registry.npmmirror.com/babel-plugin-styled-components-px2rem/-/babel-plugin-styled-components-px2rem-1.5.5.tgz#5d1117cf5bd8f9f4c8c15663a72b62a0fe9cc410"
-  integrity sha512-yM20Z+CeFot6xmVlIaF9Rtm9NRykFuWih4iU3WA0HBLQp8hETSN5r9matw7Sd2dPnzo+ui0tTyTCGd3yb6NIPw==
-  dependencies:
-    "@babel/helper-plugin-utils" "^7.0.0"
-    memoizerific "^1.11.3"
-    postcss-plugin-px2rem "^0.8.1"
-    postcss-scss "^2.0.0"
 
 "babel-plugin-styled-components@>= 1.12.0":
   version "2.0.7"
