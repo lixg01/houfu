@@ -220,7 +220,7 @@ const Card: React.FC = () => {
         <Btn cls={'btn'} title={'确认绑卡'} fun={test} />
       </ThemeProvider>
 
-      {/* 选择学历等级 */}
+      {/* 选择学历等级 d*/}
       <Popup
         visible={bankVisible}
         onMaskClick={() => {
