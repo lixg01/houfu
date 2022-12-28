@@ -11,6 +11,7 @@ const Unbilled = lazy(() => import('pages/unbilled'))
 const RepaymentRecord = lazy(() => import('pages/repaymentRecord'))
 const RepaymentDetails = lazy(() => import('pages/repaymentDetails'))
 const Status = lazy(() => import('pages/status'))
+const Test = lazy(() => import('pages/test'))
 
 interface RouteType {
   title?: string
@@ -85,6 +86,11 @@ const routerList: RouteType[] = [
     title: '还款处理中',
     path: 'status',
     component: Status,
+  },
+  {
+    title: 'test',
+    path: 'test',
+    component: Test,
   },
 ]
 
